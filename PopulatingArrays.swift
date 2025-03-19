@@ -15,8 +15,11 @@
 // Import foundation library
 import Foundation
 
-// Set array length as a constant
+// Declare constants
 let arrayLength = 10
+let lines = 5
+let minNum = 0
+let maxNum = 100
 
 // Function to generate an array of random numbers
 func populatingArrays() -> [Int] {
@@ -24,15 +27,15 @@ func populatingArrays() -> [Int] {
     // Initialize the array
     // Source: https://www.tutorialspoint.com/swift/swift_arrays.htm
     var arrayNum: [Int] = Array(repeating: 0, count: arrayLength);
-    
+
     // Generate random numbers between 0 and 100
     // Until the counter reaches the end of the array
     for counter in 0..<arrayLength {
         // This line generates a random integer between 0 and 100
         // There are 3 dots instead of 2 because it includes the last number
-        arrayNum[counter] = Int.random(in: 0...100)
+        arrayNum[counter] = Int.random(in: minNum...maxNum)
     }
-    
+
     // Return the array
     return arrayNum
 }
@@ -41,14 +44,25 @@ func populatingArrays() -> [Int] {
 print("Welcome to the Populating Arrays program!")
 
 // Loop to generate and display 5 arrays with their averages
-for _ in 0..<5 {
+for _ in 0..<lines {
 
     // Reset sum to 0
     var sum = 0
 
     // Call populating arrays function
     let arrayNumber = populatingArrays()
-    
+
+    // Display the unsorted array:
+    for number in arrayNumber {
+        // Source: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/
+        // (found in the section called 'Printing Constants and Variables')
+        // It adds a space after each number instead of going to the next line
+        print(number, terminator: " ")
+    }
+
+    // Add a newline for spacing
+    print("")
+
     // Sort the array
     // Source: https://developer.apple.com/documentation/swift/array/sorted()
     let sortedArray = arrayNumber.sorted()
@@ -58,10 +72,10 @@ for _ in 0..<5 {
         // Add each number to the sum
         sum += number
     }
-    
+
     // Calculate the average of the sorted array
     let average: Double = Double(sum) / Double(arrayLength)
-    
+
     // Display each number in the array, separated by a space
     for number in sortedArray {
         // Source: https://docs.swift.org/swift-book/documentation/the-swift-programming-language/thebasics/
@@ -72,4 +86,7 @@ for _ in 0..<5 {
 
     // Display the average rounded to 2 decimal places
     print(" Average:", average)
+
+    // Add a newline for spacing
+    print("")
 }
