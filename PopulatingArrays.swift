@@ -26,7 +26,7 @@ func populatingArrays() -> [Int] {
 
     // Initialize the array
     // Source: https://www.tutorialspoint.com/swift/swift_arrays.htm
-    var arrayNum: [Int] = Array(repeating: 0, count: arrayLength);
+    var arrayNum: [Int] = Array(repeating: 0, count: arrayLength)
 
     // Generate random numbers between 0 and 100
     // Until the counter reaches the end of the array
